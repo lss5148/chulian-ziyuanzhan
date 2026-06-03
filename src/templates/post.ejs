@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-lg-8">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-custom">
+      <a href="/">首页</a> &raquo;
+      <a href="/category/<%= post.category_slug %>"><%= post.category_name %></a> &raquo;
+      <span><%= post.title %></span>
+    </div>
+
+    <!-- Post Header -->
+    <div class="post-header">
+      <h1 class="post-title"><%= post.title %></h1>
+      <div class="post-meta">
+        <span><i class="fa fa-calendar"></i> <%= new Date(post.created_at).toLocaleDateString('zh-CN') %></span>
+        <span><i class="fa fa-folder-o"></i> <a href="/category/<%= post.category_slug %>"><%= post.category_name %></a></span>
+        <span><i class="fa fa-eye"></i> <%= post.view_count %></span>
+      </div>
+    </div>
+
+    <!-- Post Content -->
+    <div class="post-content">
+      <%- contentHtml %>
+    </div>
+
+    <!-- Download Box -->
+    <% if (post.download_url) { %>
+    <div class="download-box">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h5 class="mb-2"><i class="fa fa-download"></i> 下载地址</h5>
+          <div class="download-info">
+            <% if (post.file_size) { %><span class="me-3"><strong>大小:</strong> <%= post.file_size %></span><% } %>
+            <% if (post.file_version) { %><span class="me-3"><strong>版本:</strong> <%= post.file_version %></span><% } %>
+            <% if (post.extract_code) { %><span><strong>提取码:</strong> <%= post.extract_code %></span><% } %>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+          <a href="<%= post.download_url %>" target="_blank" rel="nofollow" class="btn btn-download">
+            <i class="fa fa-cloud-download"></i> 立即下载
+          </a>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <!-- Copyright Notice -->
+    <div class="alert alert-secondary mt-3" style="background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.85rem;">
+      <i class="fa fa-info-circle"></i> 本站资源来源于网络，仅供学习交流使用，请于下载后24小时内删除。如有侵权，请联系我们处理。
+    </div>
+
+    <!-- Related Posts -->
+    <% if (relatedPosts && relatedPosts.length > 0) { %>
+    <div class="section-header mt-4">
+      <h3>相关推荐</h3>
+    </div>
+    <div class="row g-3">
+      <% relatedPosts.forEach(function(rp) { %>
+      <div class="col-6 col-md-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/post/<%= rp.slug %>"><%= rp.title %></a></h5>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+    <% } %>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="col-lg-4">
+    <div class="sidebar-section">
+      <h5 class="sidebar-title"><i class="fa fa-clock-o"></i> 最新文章</h5>
+      <% recentPosts.forEach(function(rp) { %>
+      <div class="d-flex mb-2 pb-2" style="border-bottom: 1px solid var(--border-color);">
+        <div class="flex-grow-1">
+          <a href="/post/<%= rp.slug %>" style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem;"><%= rp.title %></a>
+          <small class="text-muted"><%= new Date(rp.created_at).toLocaleDateString('zh-CN') %></small>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+    <div class="sidebar-section">
+      <h5 class="sidebar-title"><i class="fa fa-tags"></i> 标签云</h5>
+      <div>
+        <p class="text-muted small">暂无标签</p>
+      </div>
+    </div>
+  </div>
+</div>

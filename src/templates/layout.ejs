@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <meta name="keywords" content="初恋资源站,软件下载,安卓应用,绿色软件,免费资源">
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <span class="brand-icon">&#9829;</span> 初恋资源站
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link <%= path === '/' ? 'active' : '' %>" href="/"><i class="fa fa-home"></i> 首页</a>
+          </li>
+          <% categories.forEach(function(cat) { %>
+          <li class="nav-item">
+            <a class="nav-link <%= path === '/category/' + cat.slug ? 'active' : '' %>" href="/category/<%= cat.slug %>">
+              <i class="fa <%= cat.icon %>"></i> <%= cat.name %>
+            </a>
+          </li>
+          <% }); %>
+          <li class="nav-item">
+            <a class="nav-link<%= path === '/about' ? ' active' : '' %>" href="/about"><i class="fa fa-info-circle"></i> 关于</a>
+          </li>
+        </ul>
+        <form class="d-flex" action="/search" method="GET" onsubmit="event.preventDefault(); var q=this.querySelector('input').value; if(q) window.location.href='/search?q='+encodeURIComponent(q);">
+          <div class="input-group">
+            <input class="form-control form-control-sm search-input" type="search" name="q" placeholder="搜索资源...">
+            <button class="btn btn-search btn-sm" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <%- body %>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5><span class="brand-icon">&#9829;</span> 初恋资源站</h5>
+          <p class="text-muted small">专注绿色纯净资源的下载平台。本站资源仅供学习交流，请于下载后24小时内删除。</p>
+        </div>
+        <div class="col-md-3">
+          <h6>快速链接</h6>
+          <ul class="list-unstyled">
+            <li><a href="/">首页</a></li>
+            <li><a href="/about">关于我们</a></li>
+            <li><a href="/tags">标签云</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>关注我们</h6>
+          <p class="text-muted small">微信公众号：初恋资源站</p>
+        </div>
+      </div>
+      <hr class="my-3">
+      <div class="text-center text-muted small">
+        <p>&copy; 2026 初恋资源站 | 本站内容来源于网络，仅供学习交流，版权归原作者所有。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

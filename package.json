@@ -1,0 +1,12 @@
+{
+  "name": "chulian-resource-static",
+  "version": "1.0.0",
+  "description": "初恋资源站 - 静态版 (Cloudflare Pages)",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "marked": "^18.0.4"
+  }
+}

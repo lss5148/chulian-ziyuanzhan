@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "title": "微信输入法实测推荐",
+      "slug": "wechat-input-method-test",
+      "content": "## 功能介绍\n\n微信输入法是一款实用的输入工具。\n\n### 特点\n\n- 流畅输入体验\n- 智能联想\n- 隐私保护",
+      "summary": "微信输入法使用体验分享",
+      "category_id": 1,
+      "cover_image": "",
+      "download_url": "",
+      "file_size": "",
+      "file_version": "",
+      "extract_code": "",
+      "is_featured": 1,
+      "view_count": 2,
+      "status": "published",
+      "created_at": "2026-06-03 08:15:07",
+      "category_name": "安卓软件",
+      "category_slug": "android"
+    },
+    {
+      "id": 4,
+      "title": "Win11 系统优化工具推荐",
+      "slug": "win11-optimization-tools",
+      "content": "## 系统优化\n\n让你的Windows 11运行更流畅。\n\n### 推荐工具\n\n1. Dism++\n2. WizTree\n3. Everything",
+      "summary": "提升Win11运行速度的必备工具",
+      "category_id": 2,
+      "cover_image": "",
+      "download_url": "",
+      "file_size": "",
+      "file_version": "",
+      "extract_code": "",
+      "is_featured": 1,
+      "view_count": 2,
+      "status": "published",
+      "created_at": "2026-06-03 08:15:07",
+      "category_name": "PC软件",
+      "category_slug": "pc-software"
+    },
+    {
+      "id": 5,
+      "title": "免费观影App推荐2024",
+      "slug": "free-movie-apps-2024",
+      "content": "## 观影工具\n\n几款好用的免费观影App推荐。\n\n> 注意：请遵守法律法规\n\n- TVBox\n- 影视仓\n- 猫影视",
+      "summary": "2024年最好用的免费观影App合集",
+      "category_id": 1,
+      "cover_image": "",
+      "download_url": "",
+      "file_size": "",
+      "file_version": "",
+      "extract_code": "",
+      "is_featured": 0,
+      "view_count": 1,
+      "status": "published",
+      "created_at": "2026-06-03 08:15:07",
+      "category_name": "安卓软件",
+      "category_slug": "android"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "安卓软件",
+      "slug": "android",
+      "description": "精选安卓应用和游戏",
+      "icon": "fa-android",
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "PC软件",
+      "slug": "pc-software",
+      "description": "Windows/Mac 实用软件",
+      "icon": "fa-windows",
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "name": "游戏资源",
+      "slug": "games",
+      "description": "PC游戏和手游推荐",
+      "icon": "fa-gamepad",
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "name": "实用教程",
+      "slug": "tutorials",
+      "description": "软件教程和技巧分享",
+      "icon": "fa-book",
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "name": "在线工具",
+      "slug": "online-tools",
+      "description": "好用的在线工具推荐",
+      "icon": "fa-globe",
+      "sort_order": 5
+    }
+  ],
+  "tags": []
+}
