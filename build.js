@@ -33,8 +33,13 @@ function renderPage(pageContent, pageData) {
   return ejs.render(layoutTpl, { ...pageData, body }, { async: false });
 }
 
-// Helper: write HTML file
+// Helper: write HTML file (uses folder structure for clean URLs)
 function writeHtml(filePath, html) {
+  // Convert "post/xxx.html" to "post/xxx/index.html" for clean URLs
+  if (filePath.includes('/') && filePath.endsWith('.html')) {
+    const dirName = filePath.replace(/\.html$/, '');
+    filePath = dirName + '/index.html';
+  }
   const fullPath = path.join(DIST, filePath);
   const dir = path.dirname(fullPath);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -249,16 +254,7 @@ function copyDir(src, dst) {
 copyDir(PUBLIC, path.join(DIST));
 console.log('  ✓ css/, js/ 已复制');
 
-// 8. Write _redirects
-console.log('\n生成 Cloudflare 配置...');
-const redirects = `# Clean URLs (internal rewrites, not redirects)
-/category/:slug /category/:slug.html  200
-/post/:slug /post/:slug.html  200
-`;
-fs.writeFileSync(path.join(DIST, '_redirects'), redirects);
-console.log('  ✓ _redirects');
-
-// 9. Write _headers
+// 8. Write _headers
 const headers = `# Cache policy
 /css/*
   Cache-Control: public, max-age=604800, immutable
